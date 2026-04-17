@@ -95,6 +95,41 @@ The system uses a LangGraph-based state machine with the following agents:
    streamlit run app.py
    ```
 
+## 🐳 Docker
+
+### Prerequisites
+
+- Docker Desktop (or Docker Engine + Docker Compose)
+
+### Run with Docker Compose
+
+1. **Create your environment file**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Set your Gemini API key in `.env`**
+   ```bash
+   GOOGLE_API_KEY=your_actual_api_key_here
+   ```
+
+3. **Build and start the container**
+   ```bash
+   docker compose up --build
+   ```
+
+4. **Open the app**
+   ```
+   http://localhost:8501
+   ```
+
+### Run with Docker Only
+
+```bash
+docker build -t music-store-ai-support .
+docker run --rm -p 8501:8501 --env-file .env music-store-ai-support
+```
+
 ## 📁 Project Structure
 
 ```
