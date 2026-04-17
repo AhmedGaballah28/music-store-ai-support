@@ -1,0 +1,13 @@
+services:
+  music-store-ai-support:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: music-store-ai-support
+    ports:
+      - "8501:8501"
+    environment:
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///chinook.db}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    restart: unless-stopped
